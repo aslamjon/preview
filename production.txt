@@ -1,0 +1,42 @@
+
+
+# LOCAL: get ssh key from .ssh/id_rsa.pub
+# AWS: then past to bottom of .ssh/authorized_keys
+
+# LOCAL: create ecosystem.config.js in root directory
+
+### 
+  module.exports = {
+    apps: [
+      {
+        name: "preview",
+        script: "server.js",
+        env_production: {
+          NODE_ENV: "production",
+        },
+      },
+    ],
+
+    // Deployment Configuration
+    deploy: {
+      production: {
+        user: "ubuntu",
+        host: "18.222.127.242",
+        ref: "origin/main",
+        // repo: "git@github.com:aslamjon/preview.git",
+        repo: "https://github.com/aslamjon/preview.git",
+        path: "/home/ubuntu/deploy",
+        "pre-setup": "pwd",
+        "pre-deploy-local": "echo 'This is a local deployment'",
+        "post-deploy": "cp ../.env ./ && npm install && pm2 startOrRestart ecosystem.config.js --env production",
+      },
+    },
+  };
+###
+
+// code larni serverga deploy qiladi
+# LOCAL: pm2 deploy production setup
+
+# AWS: show /home/ubuntu/deploy
+
+# LOCAL: run command -> pm2 deploy production exce "cp ../.env ./ && npm install && pm2 startOrRestart ecosystem.config.js --env production"

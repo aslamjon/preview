@@ -3,9 +3,20 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
+const compression = require("compression");
+require("dotenv").config();
 
 const app = express();
-require("dotenv").config();
+
+function shouldCompress(req, res) {
+  // don't compress responses with this request header
+  if (req.headers["x-no-compression"]) return false;
+
+  // fallback to standard filter function
+  return compression.filter(req, res);
+}
+
+app.use(compression({ filter: shouldCompress }));
 
 const createDefaultFolder = (dirName) => {
   if (!fs.existsSync(dirName)) fs.mkdirSync(dirName, { recursive: true });

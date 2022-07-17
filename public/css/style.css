@@ -1,0 +1,38 @@
+
+.container {
+  padding: 0 auto;
+}
+
+#form {
+  max-width: 500px;
+}
+
+.main {
+  min-height: 100vh;
+  padding-top: 20px;
+}
+input {
+  margin: 10px 0;
+}
+
+.previews__body {
+  display: flex;
+  gap: 20px;
+}
+
+.card__img__top {
+  max-height: 160px;
+  object-fit: cover;
+}
+.card {
+  min-width: 250px;
+
+}
+.previews__body__card__img {
+  width: 100%;
+}
+.previews__body__empty {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+}

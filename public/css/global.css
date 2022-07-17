@@ -1,0 +1,12 @@
+.center {
+  display: grid;
+  place-items: center center;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.h-100vh {
+  height: 100vh;
+}

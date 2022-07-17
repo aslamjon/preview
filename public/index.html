@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="icons/logo.ico" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Preview</title>
+  </head>
+  <body>
+    <div class="container main">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-outline-success" id="mainModalBtn" data-bs-toggle="modal" data-bs-target="#mainModal">
+        Create preview
+      </button>
+      <button type="button" class="btn btn-outline-secondary" onclick="logout()">Log out</button>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="mainModal"
+        tabindex="-1"
+        aria-labelledby="mainModalLabel"
+        aria-hidden="true"
+        onclick="checkModal()"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form id="form" action="/" method="post">
+              <div class="modal-header">
+                <h5 class="modal-title" id="mainModalLabel">Create preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="resetForm()"></button>
+              </div>
+              <div class="modal-body">
+                <input type="text" name="title" class="form-control" placeholder="title" />
+                <input type="text" name="description" class="form-control" placeholder="description" />
+                <input type="url" name="link" class="form-control" placeholder="link" />
+                <input type="file" name="file" class="form-control" placeholder="file" />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" onclick="resetForm()">Close</button>
+                <input type="submit" class="btn btn-dark" data-bs-dismiss="modal" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="previews">
+        <div class="previews__title mt-3 mb-3">My preview</div>
+        <div class="previews__body"></div>
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script src="scripts/global.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

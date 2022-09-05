@@ -6,3 +6,5 @@ node_modules
 .env.prod
 .env.dev
 .vscode
+.DS_Store
+app.log

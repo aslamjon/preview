@@ -1,1 +1,95 @@
-07-11-2022 16:26:34 - [ERROR  ] - isEmpty is not defined -> previewController.js -> createPreview
+07-11-2022 16:26:34 - [ERROR  ] - isEmpty is not defined -> previewController.js -> createPreview07-18-2022 13:01:29 - [INFO   ] - Mongodb is connected
+07-18-2022 13:01:58 - INFO    - Mongodb is connected
+07-18-2022 13:03:19 - INFO    - Mongodb is connected
+07-18-2022 13:04:01 - INFO    - Server is running on 8989
+07-18-2022 13:04:01 - INFO    - Mongodb is connected
+07-18-2022 13:06:02 - INFO    - Server is running on 8989
+07-18-2022 13:06:02 - INFO    - Mongodb is connected
+07-18-2022 13:07:37 - INFO    - Server is running on 8989
+07-18-2022 13:07:37 - INFO    - Mongodb is connected
+07-18-2022 22:29:03 - INFO    - Server is running on 8989
+07-18-2022 22:29:03 - INFO    - Mongodb is connected
+07-18-2022 22:29:33 - INFO    - Server is running on 8989
+07-18-2022 22:29:33 - INFO    - Mongodb is connected
+07-18-2022 22:29:58 - INFO    - Server is running on 8989
+07-18-2022 22:29:58 - INFO    - Mongodb is connected
+07-18-2022 22:30:25 - INFO    - Server is running on 8989
+07-18-2022 22:30:25 - INFO    - Mongodb is connected
+07-18-2022 22:31:16 - INFO    - Server is running on 8989
+07-18-2022 22:31:16 - INFO    - Mongodb is connected
+07-18-2022 22:31:47 - INFO    - Server is running on 8989
+07-18-2022 22:31:47 - INFO    - Mongodb is connected
+07-18-2022 22:35:32 - INFO    - Server is running on 8989
+07-18-2022 22:35:32 - INFO    - Mongodb is connected
+07-18-2022 22:36:46 - INFO    - Server is running on 8989
+07-18-2022 22:36:46 - INFO    - Mongodb is connected
+07-18-2022 22:37:00 - INFO    - Server is running on 8989
+07-18-2022 22:37:00 - INFO    - Mongodb is connected
+07-18-2022 22:38:49 - INFO    - Server is running on 8989
+07-18-2022 22:38:49 - INFO    - Mongodb is connected
+07-18-2022 22:39:37 - INFO    - Server is running on 8989
+07-18-2022 22:39:37 - INFO    - Mongodb is connected
+07-18-2022 22:39:59 - INFO    - Server is running on 8989
+07-18-2022 22:40:00 - INFO    - Mongodb is connected
+07-18-2022 22:40:08 - INFO    - Server is running on 8989
+07-18-2022 22:40:08 - INFO    - Mongodb is connected
+07-18-2022 22:41:19 - INFO    - Server is running on 8989
+07-18-2022 22:41:19 - INFO    - Mongodb is connected
+07-18-2022 22:46:11 - INFO    - Server is running on 8989
+07-18-2022 22:46:11 - INFO    - Mongodb is connected
+07-18-2022 22:47:12 - INFO    - Server is running on 8989
+07-18-2022 22:47:12 - INFO    - Mongodb is connected
+07-18-2022 22:48:22 - INFO    - Server is running on 8989
+07-18-2022 22:48:22 - INFO    - Mongodb is connected
+07-18-2022 22:49:19 - INFO    - Server is running on 8989
+07-18-2022 22:49:19 - INFO    - Mongodb is connected
+07-18-2022 22:49:29 - INFO    - Server is running on 8989
+07-18-2022 22:49:29 - INFO    - Mongodb is connected
+07-18-2022 22:50:50 - INFO    - Server is running on 8989
+07-18-2022 22:50:50 - INFO    - Mongodb is connected
+07-18-2022 22:52:03 - INFO    - Server is running on 8989
+07-18-2022 22:52:03 - INFO    - Mongodb is connected
+07-18-2022 22:53:47 - INFO    - Server is running on 8989
+07-18-2022 22:53:47 - INFO    - Mongodb is connected
+07-18-2022 22:53:58 - INFO    - Server is running on 8989
+07-18-2022 22:53:58 - INFO    - Mongodb is connected
+07-18-2022 22:55:44 - INFO    - Server is running on 8989
+07-18-2022 22:55:44 - INFO    - Mongodb is connected
+07-18-2022 23:00:07 - INFO    - Server is running on 8989
+07-18-2022 23:00:07 - INFO    - Mongodb is connected
+07-18-2022 23:01:07 - INFO    - Server is running on 8989
+07-18-2022 23:01:07 - INFO    - Mongodb is connected
+07-18-2022 23:03:06 - INFO    - Server is running on 8989
+07-18-2022 23:03:06 - INFO    - Mongodb is connected
+07-18-2022 23:03:24 - INFO    - Server is running on 8989
+07-18-2022 23:03:24 - INFO    - Mongodb is connected
+07-18-2022 23:06:16 - INFO    - Server is running on 8989
+07-18-2022 23:06:17 - INFO    - Mongodb is connected
+07-18-2022 23:06:27 - INFO    - Server is running on 8989
+07-18-2022 23:06:27 - INFO    - Mongodb is connected
+07-18-2022 23:07:08 - INFO    - Server is running on 8989
+07-18-2022 23:07:08 - INFO    - Mongodb is connected
+07-18-2022 23:07:12 - INFO    - Server is running on 8989
+07-18-2022 23:07:12 - INFO    - Mongodb is connected
+07-18-2022 23:07:22 - INFO    - Server is running on 8989
+07-18-2022 23:07:22 - INFO    - Mongodb is connected
+07-18-2022 23:07:28 - ERROR   - newDate.formatDate is not a function from saveImg from saveImgs -> previewController.js -> createPreview -> Error: newDate.formatDate is not a function from saveImg from saveImgs
+    at saveImgs (/Users/aslamjonibragimov/GitHub/preview/src/utils/utiles.js:99:11)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async createPreview (/Users/aslamjonibragimov/GitHub/preview/src/controllers/previewController.js:21:20)
+07-18-2022 23:07:50 - INFO    - Server is running on 8989
+07-18-2022 23:07:50 - INFO    - Mongodb is connected
+07-18-2022 23:09:21 - INFO    - Server is running on 8989
+07-18-2022 23:09:21 - INFO    - Mongodb is connected
+07-18-2022 23:10:03 - INFO    - Server is running on 8989
+07-18-2022 23:10:03 - INFO    - Mongodb is connected
+07-18-2022 23:10:13 - INFO    - Server is running on 8989
+07-18-2022 23:10:13 - INFO    - Mongodb is connected
+07-18-2022 23:10:24 - INFO    - Server is running on 8989
+07-18-2022 23:10:24 - INFO    - Mongodb is connected
+07-18-2022 23:12:12 - INFO    - Server is running on 8989
+07-18-2022 23:12:13 - INFO    - Mongodb is connected
+07-18-2022 23:14:12 - INFO    - Server is running on 8989
+07-18-2022 23:14:12 - INFO    - Mongodb is connected
+07-18-2022 23:16:03 - INFO    - Server is running on 8989
+07-18-2022 23:16:03 - INFO    - Mongodb is connected

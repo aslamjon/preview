@@ -1,3 +1,9 @@
+const isProduction = () => {
+  const env = process.env.NODE_ENV || "development";
+  const isProduction = env === "production";
+  return isProduction
+}
+
 const getEnvironments = () => {
   const env = process.env.NODE_ENV || "development";
   const isProduction = env === "production";
@@ -10,11 +16,28 @@ const getEnvironments = () => {
   return "unknown_env";
 };
 
+const getMongoDbUrl = () => {
+  const env = process.env.NODE_ENV || "development";
+  const isProduction = env === "production";
+  const isDevelopment = env === "development";
+
+  if (isProduction) return process.env.MONGO_URL_PRODUCTION ? process.env.MONGO_URL_PRODUCTION : "production_env_not_found";
+  else if (isDevelopment)
+    return process.env.MONGO_URL_DEVELOPMENT ? process.env.MONGO_URL_DEVELOPMENT : "development_env_not_found";
+
+  return "unknown_env";
+};
+
 const config = {
   APP_NAME: "PREIVEW",
   API_ROOT: getEnvironments(),
+  MONGODB_URL: getMongoDbUrl(),
   DEFAULT_LANG_CODE: "uz",
   PROJECT_ID: 1,
+  PORT: process.env.PORT,
+  DELETE_ALL_FILES_PATH: isProduction ? process.env.DELETE_ALL_FILES_PATH_PRODUCTION : process.env.DELETE_ALL_FILES_PATH_DEVELOPMENT,
+  IMAGES_PATH: isProduction ? process.env.IMAGES_PATH_PRODUCTION : process.env.IMAGES_PATH_DEVELOPMENT,
+  CACHE_PATH: isProduction ? process.env.CACHE_PATH_PRODUCTION : process.env.CACHE_PATH_DEVELOPMENT,
 };
 
 module.exports = config;

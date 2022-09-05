@@ -9,6 +9,11 @@ const { hideFields } = require("../utils/utiles");
 
 const fileName = require("path").basename(__filename);
 
+const errorHandling = (e, functionName, res) => {
+  logger.error(`${e.message} -> ${fileName} -> ${functionName} -> ${e.stack}`);
+  errors.SERVER_ERROR(res);
+};
+
 const login = async (req, res) => {
   const { phoneNumber, password } = req.body;
   const secret = process.env.SALT;
@@ -39,8 +44,7 @@ const login = async (req, res) => {
       }
     }
   } catch (e) {
-    logger.error(`${e.message} -> ${fileName} -> ${login.name} -> ${e}`);
-    errors.SERVER_ERROR(res);
+    errorHandling(e, login.name, res);
   }
 };
 
@@ -84,8 +88,7 @@ const createUser = async (req, res) => {
         tokenType: "Bearer",
       });
     } catch (e) {
-      logger.error(`${e.message} -> ${fileName} -> ${createUser.name} -> ${e}`);
-      errors.SERVER_ERROR(res);
+      errorHandling(e, createUser.name, res);
     }
   }
 };
@@ -97,8 +100,7 @@ const me = async (req, res) => {
       data: { ...user._doc },
     });
   } catch (e) {
-    logger.error(`${e.message} -> ${fileName} -> ${me.name} -> ${e}`);
-    errors.SERVER_ERROR(res);
+    errorHandling(e, me.name, res);
   }
 };
 
@@ -111,8 +113,7 @@ const checkPhoneNumber = async (req, res) => {
     const user = await UserModel.findOne({ phoneNumber });
     res.send({ registered: !isNull(user) });
   } catch (e) {
-    logger.error(`${e.message} -> ${fileName} -> ${me.name} -> ${e}`);
-    errors.SERVER_ERROR(res);
+    errorHandling(e, checkPhoneNumber.name, res);
   }
 };
 

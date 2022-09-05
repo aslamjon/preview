@@ -5,6 +5,8 @@ const { Types } = require("mongoose");
 const { errors } = require("./constants");
 const logger = require("./logger");
 const { isString } = require("lodash");
+const config = require("../../config");
+const moment = require("moment");
 
 let logData = [];
 try {
@@ -23,41 +25,39 @@ const handleError = (err, res) => {
   res.status(500).contentType("text/plain").send({ message: "Oops! Something went wrong!" });
 };
 // *****************- Images -**********************
-async function saveImg(req, res, file) {
+async function saveImg(req, res, file, types = [".png", ".jpeg", ".jpg"]) {
   try {
-    const tempPath = file.path;
+    const cacheImgPath = file.path;
     let originalName = file.originalname;
 
-    function addDateTime(name) {
-      const newDate = new Date();
+    function addDateTime(name, other = "") {
+      const newDate = moment();
       const orginalNameArr = name.split(".");
       const fileType = orginalNameArr.pop();
-      const getDate = newDate.toLocaleDateString().split("/").join("_");
-      const getTime = newDate.toLocaleTimeString().split(" ")[0].split(":").join("_");
-      const milliseconds = newDate.getMilliseconds();
-      orginalNameArr.push(`_${getDate}_${getTime}_${milliseconds}`);
-      orginalNameArr.push(`.${fileType}`);
+      const getDate = newDate.format("DD-MM-YYYY");
+      const getTime = newDate.format("HH-mm-ss-SSS");
+      orginalNameArr.push(`__${getDate}__${getTime}${other}.${fileType}`);
       return orginalNameArr.join("");
     }
 
-    originalName = addDateTime(originalName);
-    const targetPath = path.join(__dirname, `./../../data/images/${originalName}`);
-    console.log(fs.existsSync(path));
-    if (fs.existsSync(path)) {
-      // Do something
-    }
+    originalName = addDateTime(originalName, `__${req.user.userId}`);
+    // const targetPath = path.join(__dirname, `./../../data/images/${originalName}`);
+    const targetPath = `${config.IMAGES_PATH}${originalName}`;
 
     // Create Img
-    if (path.extname(file.originalname).toLowerCase() && (".png" || ".svg" || ".jpg")) {
-      const resultRename = await rename(tempPath, targetPath);
+    if (types.includes(path.extname(file.originalname).toLowerCase())) {
+      const resultRename = await rename(cacheImgPath, targetPath);
       if (!resultRename) handleError("", res);
       else return originalName;
     } else {
       // Delete cache
-      const resUnlik = await unlink(tempPath);
+      const resUnlik = await unlink(cacheImgPath);
       if (!resUnlik) handleError("", res);
       else {
-        res.status(403).contentType("text/plain").send({ message: "Only .png, .svg, .jpg files are allowed!" });
+        res
+          .status(403)
+          .contentType("text/plain")
+          .send({ message: `Only ${types.join(", ")} files are allowed!` });
       }
     }
   } catch (error) {
@@ -266,8 +266,8 @@ function toFixed(number, n = 2) {
 //     });
 // }
 
-const errorHandling = (e, functionName, res, fileName) => {
-  logger.error(`${e.message} -> ${fileName} -> ${functionName}`);
+const errorHandling = (e, functionName, res) => {
+  logger.error(`${e.message} -> ${fileName} -> ${functionName} -> ${e.stack}`);
   errors.SERVER_ERROR(res);
 };
 

@@ -1,15 +1,18 @@
 const mongoose = require("mongoose");
+const config = require("../../../config");
+const logger = require("../../utils/logger");
 
 function connectDb() {
-  // console.log(process.env.MONGO_URL)
   mongoose
-    .connect(process.env.MONGO_URL, {
+    .connect(config.MONGODB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then(() => console.log("Mongodb is connected"))
+    .then(() => {
+      logger.info("Mongodb is connected");
+    })
     .catch((err) => {
-      console.log(err);
+      logger.error(err);
       process.exit(1);
     });
 }

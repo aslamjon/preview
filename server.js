@@ -40,7 +40,7 @@ app.use(express.json({ extended: true })); // if json come backend then it conve
 
 app.use("/api/auth", authRouter);
 app.use("/api/preview", previewRouter);
-app.use("/api/images", express.static(path.join(__dirname, "./data/images")));
+app.use("/api/images", express.static(config.IMAGES_PATH));
 
 app.use("/", express.static(path.join(__dirname, "./public")));
 

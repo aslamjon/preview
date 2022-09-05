@@ -21,6 +21,7 @@ const previewBodyRender = (data, infiniti = false) => {
     <div className="d-flex">
       <button onclick="editCard('${_id}', ${index})" class="btn btn-outline-success">Edit</button>
       <button onclick="deleteCard('${_id}')" class="btn btn-outline-danger">Delete</button>
+      <button onclick="copyTextToClipboard('${config.APP_URL}preview/v1/template/${_id}')" class="btn btn-outline-dark">Copy</button>
     </div>
   </div>
 </div>
